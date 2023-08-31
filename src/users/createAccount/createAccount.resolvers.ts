@@ -1,6 +1,5 @@
 import { User } from "@prisma/client";
 import { Resolvers } from "../../types";
-import client from "../../client";
 import bcrypt from "bcrypt";
 
 const createAccountResolvers: Resolvers = {
@@ -15,7 +14,8 @@ const createAccountResolvers: Resolvers = {
         password,
         avatarURL,
         githubUsername,
-      }: User
+      }: User,
+      { client }
     ) => {
       //Check if user already exists
       const foundUser = await client.user.findFirst({

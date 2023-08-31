@@ -6,10 +6,6 @@ const createAccountTypeDefs = gql`
     error: String
   }
 
-  type Query {
-    dummy: String!
-  }
-
   type Mutation {
     createAccount(
       username: String!
