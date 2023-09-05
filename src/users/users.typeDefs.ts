@@ -1,6 +1,4 @@
-import { gql } from "apollo-server";
-
-const usersTypeDefs = gql`
+const usersTypeDefs = `#graphql
   type User {
     id: Int!
     createdAt: String!

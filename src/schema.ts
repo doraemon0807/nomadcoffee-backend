@@ -22,4 +22,4 @@ const loadedResolvers = await loadFiles(
 );
 
 export const typeDefs = mergeTypeDefs(loadedTypes);
-export const resolvers = mergeResolvers(loadedResolvers);
+export const resolvers: any = mergeResolvers(loadedResolvers);

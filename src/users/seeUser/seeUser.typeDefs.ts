@@ -1,6 +1,4 @@
-import { gql } from "apollo-server";
-
-const seeUserTypeDefs = gql`
+const seeUserTypeDefs = `#graphql
   type FollowersResult {
     ok: Boolean!
     error: String

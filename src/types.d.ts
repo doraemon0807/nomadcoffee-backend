@@ -18,3 +18,8 @@ export type Resolvers = {
     [key: string]: Resolver;
   };
 };
+
+export type Pagination = {
+  lastId?: number;
+  offset?: number;
+};

@@ -1,6 +1,4 @@
-import { gql } from "apollo-server";
-
-const searchUsersTypeDefs = gql`
+const searchUsersTypeDefs = `#graphql
   type Query {
     searchUsers(keyword: String!, lastId: Int): [User]
   }

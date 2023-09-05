@@ -1,6 +1,4 @@
-import { gql } from "apollo-server";
-
-const seeProfileTypeDefs = gql`
+const seeProfileTypeDefs = `#graphql
   type Query {
     seeProfile(username: String!): User
   }

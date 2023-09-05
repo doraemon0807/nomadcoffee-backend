@@ -1,10 +1,4 @@
-import { gql } from "apollo-server";
-
-const createAccountTypeDefs = gql`
-  type CreateAccountResult {
-    ok: Boolean!
-    error: String
-  }
+const createAccountTypeDefs = `#graphql
 
   type Mutation {
     createAccount(
@@ -15,7 +9,7 @@ const createAccountTypeDefs = gql`
       password: String!
       avatarURL: String!
       githubUsername: String!
-    ): CreateAccountResult!
+    ): MutationResponse!
   }
 `;
 

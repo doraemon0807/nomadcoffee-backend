@@ -1,8 +1,7 @@
-import { Resolvers } from "../../types";
+import { Pagination, Resolvers } from "../../types";
 
-interface SearchUsersProps {
+interface SearchUsersProps extends Pagination {
   keyword: string;
-  lastId?: number;
 }
 
 const searchUsersResolver: Resolvers = {

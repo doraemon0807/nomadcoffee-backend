@@ -1,10 +1,4 @@
-import { gql } from "apollo-server";
-
-const editProfileTypeDefs = gql`
-  type EditProfileResult {
-    ok: Boolean!
-    error: String
-  }
+const editProfileTypeDefs = `#graphql
 
   type Mutation {
     editProfile(
@@ -15,7 +9,7 @@ const editProfileTypeDefs = gql`
       password: String
       avatarURL: String
       githubUsername: String
-    ): EditProfileResult!
+    ): MutationResponse!
   }
 `;
 

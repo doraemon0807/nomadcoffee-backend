@@ -1,9 +1,7 @@
-import { Resolvers } from "../../types";
+import { Pagination, Resolvers } from "../../types";
 import { User } from "@prisma/client";
 
-interface SeeUserProps extends User {
-  lastId: number;
-}
+interface SeeUserProps extends User, Pagination {}
 
 const seeUserResolver: Resolvers = {
   Query: {

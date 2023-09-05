@@ -1,6 +1,4 @@
-import { gql } from "apollo-server";
-
-const loginTypeDefs = gql`
+const loginTypeDefs = `#graphql
   type LoginResult {
     ok: Boolean!
     error: String

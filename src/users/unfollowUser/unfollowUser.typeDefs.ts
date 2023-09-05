@@ -1,13 +1,7 @@
-import { gql } from "apollo-server";
-
-const UnfollowUserTypeDefs = gql`
-  type UnfollowUserResult {
-    ok: Boolean!
-    error: String
-  }
+const UnfollowUserTypeDefs = `#graphql
 
   type Mutation {
-    unfollowUser(username: String!): UnfollowUserResult!
+    unfollowUser(username: String!): MutationResponse!
   }
 `;
 
