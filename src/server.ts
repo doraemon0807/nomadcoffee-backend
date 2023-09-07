@@ -47,6 +47,8 @@ const serverCleanup = useServer(
 
 const apolloConfig = {
   schema,
+  playground: true,
+
   plugins: [
     ApolloServerPluginDrainHttpServer({ httpServer }),
     {
