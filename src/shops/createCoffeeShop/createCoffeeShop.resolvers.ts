@@ -1,8 +1,8 @@
 import { CoffeeShop } from "@prisma/client";
-import { protectedResolver } from "../../users/users.utils";
-import { processCategories, processUrls } from "../shops.utils";
+import { protectedResolver } from "../../users/users.utils.js";
+import { processCategories, processUrls } from "../shops.utils.js";
 import GraphQLUpload from "graphql-upload/GraphQLUpload.mjs";
-import { uploadToS3 } from "../../shared/shared.utils";
+import { uploadToS3 } from "../../shared/shared.utils.js";
 
 interface CreateCoffeeShopProps extends CoffeeShop {
   category: string;

@@ -1,4 +1,4 @@
-import { Pagination, Resolvers } from "../../types";
+import { Pagination, Resolvers } from "../../types.js";
 import { User } from "@prisma/client";
 
 interface SeeUserProps extends User, Pagination {}

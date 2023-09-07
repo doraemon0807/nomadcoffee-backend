@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import { Resolvers } from "../../types";
+import { Resolvers } from "../../types.js";
 import bcrypt from "bcrypt";
 
 const createAccountResolvers: Resolvers = {

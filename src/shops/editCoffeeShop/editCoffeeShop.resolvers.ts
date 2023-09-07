@@ -1,7 +1,7 @@
 import { CoffeeShop } from "@prisma/client";
-import { Resolvers } from "../../types";
-import { protectedResolver } from "../../users/users.utils";
-import { cleanCategories, processCategories } from "../shops.utils";
+import { Resolvers } from "../../types.js";
+import { protectedResolver } from "../../users/users.utils.js";
+import { cleanCategories, processCategories } from "../shops.utils.js";
 
 interface EditCoffeeShop extends CoffeeShop {
   categories: string;

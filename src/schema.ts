@@ -6,14 +6,14 @@ import { pathToFileURL, fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const loadedTypes = await loadFiles(path.join(__dirname, "**/*.typeDefs.ts"), {
+const loadedTypes = await loadFiles(path.join(__dirname, "**/*.typeDefs.*"), {
   requireMethod: async (path: string) => {
     return await import(pathToFileURL(path).toString());
   },
 });
 
 const loadedResolvers = await loadFiles(
-  path.join(__dirname, "**/*.resolvers.ts"),
+  path.join(__dirname, "**/*.resolvers.*"),
   {
     requireMethod: async (path: string) => {
       return await import(pathToFileURL(path).toString());

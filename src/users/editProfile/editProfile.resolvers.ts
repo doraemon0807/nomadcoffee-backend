@@ -1,7 +1,7 @@
 import { User } from "@prisma/client";
-import { Resolvers } from "../../types";
+import { Resolvers } from "../../types.js";
 import bcrypt from "bcrypt";
-import { protectedResolver } from "../users.utils";
+import { protectedResolver } from "../users.utils.js";
 
 const editProfileResolver: Resolvers = {
   Mutation: {

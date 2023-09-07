@@ -1,4 +1,4 @@
-import { Resolvers } from "../../types";
+import { Resolvers } from "../../types.js";
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";

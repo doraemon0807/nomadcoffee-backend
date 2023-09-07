@@ -1,5 +1,5 @@
 import { CoffeeShop } from "@prisma/client";
-import { Resolvers } from "../../types";
+import { Resolvers } from "../../types.js";
 
 const seeCoffeeShopResolver: Resolvers = {
   Query: {

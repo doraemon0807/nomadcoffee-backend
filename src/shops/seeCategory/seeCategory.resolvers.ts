@@ -1,5 +1,5 @@
-import { Pagination, Resolvers } from "../../types";
-import { categoryToSlug } from "../shops.utils";
+import { Pagination, Resolvers } from "../../types.js";
+import { categoryToSlug } from "../shops.utils.js";
 
 interface SeeCategoryProps extends Pagination {
   category: string;

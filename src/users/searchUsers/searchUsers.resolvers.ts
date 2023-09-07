@@ -1,4 +1,4 @@
-import { Pagination, Resolvers } from "../../types";
+import { Pagination, Resolvers } from "../../types.js";
 
 interface SearchUsersProps extends Pagination {
   keyword: string;
