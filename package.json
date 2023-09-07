@@ -8,7 +8,7 @@
     "dev": "nodemon --exec ts-node src/server --ext ts,js",
     "migrate": "npx prisma migrate dev",
     "studio": "npx prisma studio",
-    "build": "npx tsc",
+    "build": "npm install && npx tsc",
     "start": "npm run build && node ./dist/server.js"
   },
   "engines": {
