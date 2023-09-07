@@ -9,7 +9,7 @@
     "migrate": "npx prisma migrate dev",
     "studio": "npx prisma studio",
     "build": "npm install && npx tsc",
-    "start": "npm run build && node ./dist/server.js"
+    "start": "node ./dist/server.js"
   },
   "engines": {
     "node": ">=14.17.0"
