@@ -8,6 +8,7 @@ const usersTypeDefs = `#graphql
     name: String!
     location: String!
     password: String!
+    role: String!
     avatarURL: String
     githubUsername: String
     followers: [User]

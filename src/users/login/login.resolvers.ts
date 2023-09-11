@@ -14,7 +14,7 @@ const loginResolver: Resolvers = {
       if (!foundUser) {
         return {
           ok: false,
-          error: "This user does not exist.",
+          error: "The username or password is wrong. Please try again.",
         };
       }
       const passwordCheck = await bcrypt.compare(password, foundUser.password);
@@ -22,7 +22,7 @@ const loginResolver: Resolvers = {
       if (!passwordCheck) {
         return {
           ok: false,
-          error: "Wrong password.",
+          error: "The username or password is wrong. Please try again.",
         };
       }
 

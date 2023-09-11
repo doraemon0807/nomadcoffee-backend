@@ -49,8 +49,7 @@ const createAccountResolvers: Resolvers = {
           name,
           location,
           password: hashPassword,
-          avatarURL,
-          githubUsername,
+          ...(githubUsername && { githubUsername }),
         },
       });
 

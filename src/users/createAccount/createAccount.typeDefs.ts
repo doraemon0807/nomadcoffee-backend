@@ -7,8 +7,7 @@ const createAccountTypeDefs = `#graphql
       name: String!
       location: String!
       password: String!
-      avatarURL: String!
-      githubUsername: String!
+      githubUsername: String
     ): MutationResponse!
   }
 `;

@@ -5,6 +5,21 @@ interface SeeUserProps extends User, Pagination {}
 
 const seeUserResolver: Resolvers = {
   Query: {
+    seeUser: async (_, { username }: SeeUserProps, { client }) => {
+      const foundUser = await client.user.findUnique({
+        where: {
+          username,
+        },
+      });
+      if (!foundUser) {
+        return {
+          ok: false,
+          error: "This user does not exist.",
+        };
+      }
+      return foundUser;
+    },
+
     followers: async (_, { username, lastId }: SeeUserProps, { client }) => {
       const foundUser = await client.user.findUnique({
         where: {

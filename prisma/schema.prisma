@@ -19,6 +19,7 @@ model User {
   name           String
   location       String
   password       String
+  role           String       @default("user")
   avatarURL      String?
   githubUsername String?
   followers      User[]       @relation("follows")
