@@ -6,9 +6,11 @@ const shopsTypeDefs = `#graphql
     name: String!
     latitude: String
     longitude: String
-    user: [User]
-    photos: [CoffeeShopPhoto]
-    categories: [Category]
+    description: String
+    user: User
+    photos: [CoffeeShopPhoto]!
+    categories: [Category]!
+    isMine: Boolean!
   }
 
   type CoffeeShopPhoto {

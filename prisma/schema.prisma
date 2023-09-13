@@ -28,16 +28,17 @@ model User {
 }
 
 model CoffeeShop {
-  id         Int               @id @default(autoincrement())
-  createdAt  DateTime          @default(now())
-  updatedAt  DateTime          @updatedAt
-  name       String
-  latitude   String
-  longitude  String
-  user       User              @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId     Int
-  photos     CoffeeShopPhoto[]
-  categories Category[]
+  id          Int               @id @default(autoincrement())
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  name        String
+  latitude    String
+  longitude   String
+  description String?
+  user        User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+  photos      CoffeeShopPhoto[]
+  categories  Category[]
 }
 
 model CoffeeShopPhoto {

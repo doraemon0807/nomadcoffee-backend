@@ -9,21 +9,9 @@ const seeCoffeeShopResolver: Resolvers = {
           id,
         },
         include: {
-          categories: {
-            select: {
-              name: true,
-            },
-          },
-          photos: {
-            select: {
-              url: true,
-            },
-          },
-          user: {
-            select: {
-              name: true,
-            },
-          },
+          categories: true,
+          photos: true,
+          user: true,
         },
       });
       return coffeeShop;
