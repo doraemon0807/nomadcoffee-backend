@@ -1,7 +1,7 @@
 const seeCoffeeShopsTypeDefs = `#graphql
 
   type Query {
-    seeCoffeeShops(lastId: Int): [CoffeeShop]!
+    seeCoffeeShops(offset: Int): [CoffeeShop]!
   }
 `;
 

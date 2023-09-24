@@ -2,9 +2,7 @@ import { Pagination, Resolvers } from "../../types.js";
 
 const seeCoffeeShopsResolver: Resolvers = {
   Query: {
-    seeCoffeeShops: async (_, { lastId }: Pagination, { client }) => {
-      const offset = 12;
-
+    seeCoffeeShops: async (_, { offset }: Pagination, { client }) => {
       const coffeeShops = await client.coffeeShop.findMany({
         orderBy: {
           createdAt: "desc",
@@ -14,13 +12,8 @@ const seeCoffeeShopsResolver: Resolvers = {
           user: true,
           categories: true,
         },
-        take: offset,
-        skip: lastId ? 1 : 0,
-        ...(lastId && {
-          cursor: {
-            id: lastId,
-          },
-        }),
+        take: 2,
+        skip: offset,
       });
       return coffeeShops;
     },
