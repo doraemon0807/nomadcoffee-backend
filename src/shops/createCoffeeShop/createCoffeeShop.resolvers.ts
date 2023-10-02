@@ -16,7 +16,14 @@ const createCoffeeShopResolver = {
     createCoffeeShop: protectedResolver(
       async (
         _,
-        { name, latitude, longitude, category, files }: CreateCoffeeShopProps,
+        {
+          name,
+          latitude,
+          longitude,
+          category,
+          files,
+          description,
+        }: CreateCoffeeShopProps,
         { client, loggedInUser }
       ) => {
         let categoryObj = [];
@@ -43,11 +50,12 @@ const createCoffeeShopResolver = {
         const urlObj = processUrls(fileUrl);
 
         //create shop
-        await client.coffeeShop.create({
+        const shop = await client.coffeeShop.create({
           data: {
             name,
             latitude,
             longitude,
+            description,
             user: {
               connect: {
                 id: loggedInUser.id,
@@ -66,10 +74,16 @@ const createCoffeeShopResolver = {
               },
             }),
           },
+          include: {
+            user: true,
+            categories: true,
+            photos: true,
+          },
         });
 
         return {
           ok: true,
+          shop,
         };
       }
     ),

@@ -1,7 +1,7 @@
 const seeCategoryTypeDefs = `#graphql
 
   type Query {
-    seeCategory(category: String!, lastId: Int): [CoffeeShop]!
+    seeCategory(category: String!, offset: Int): [CoffeeShop]!
   }
 `;
 

@@ -9,10 +9,9 @@ const seeCategoryResolver: Resolvers = {
   Query: {
     seeCategory: async (
       _,
-      { category, lastId }: SeeCategoryProps,
+      { category, offset }: SeeCategoryProps,
       { client }
     ) => {
-      const offset = 5;
       const coffeeShops = await client.coffeeShop.findMany({
         where: {
           categories: {
@@ -21,13 +20,8 @@ const seeCategoryResolver: Resolvers = {
             },
           },
         },
-        take: offset,
-        skip: lastId ? 1 : 0,
-        ...(lastId && {
-          cursor: {
-            id: lastId,
-          },
-        }),
+        take: 2,
+        skip: offset,
       });
       return coffeeShops;
     },
