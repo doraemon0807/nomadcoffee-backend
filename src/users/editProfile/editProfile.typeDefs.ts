@@ -6,7 +6,8 @@ const editProfileTypeDefs = `#graphql
       email: String
       name: String
       location: String
-      password: String
+      oldPassword: String
+      newPassword: String
       avatarURL: String
       githubUsername: String
     ): MutationResponse!

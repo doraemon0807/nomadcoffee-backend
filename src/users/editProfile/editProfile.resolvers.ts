@@ -3,6 +3,11 @@ import { Resolvers } from "../../types.js";
 import bcrypt from "bcrypt";
 import { protectedResolver } from "../users.utils.js";
 
+interface UserWithPasswords extends User {
+  oldPassword?: string;
+  newPassword?: string;
+}
+
 const editProfileResolver: Resolvers = {
   Mutation: {
     editProfile: protectedResolver(
@@ -13,10 +18,11 @@ const editProfileResolver: Resolvers = {
           email,
           name,
           location,
-          password,
+          oldPassword,
+          newPassword,
           avatarURL,
           githubUsername,
-        }: User,
+        }: UserWithPasswords,
         { loggedInUser, client }
       ) => {
         const foundUser = await client.user.findUnique({
@@ -33,11 +39,25 @@ const editProfileResolver: Resolvers = {
         }
 
         let avatar = loggedInUser.avatarURL || null;
+        let newHashPassword = null;
 
-        let hashPassword = null;
+        if (oldPassword && newPassword) {
+          newHashPassword = await bcrypt.hash(newPassword, 10);
+        }
 
-        if (password) {
-          hashPassword = await bcrypt.hash(password, 10);
+        console.log(oldPassword);
+        console.log(foundUser.password);
+
+        const passwordCheck = await bcrypt.compare(
+          oldPassword,
+          foundUser.password
+        );
+
+        if (!passwordCheck) {
+          return {
+            ok: false,
+            error: "Incorrect password.",
+          };
         }
 
         const updateUser = await client.user.update({
@@ -45,12 +65,13 @@ const editProfileResolver: Resolvers = {
             username,
           },
           data: {
+            username,
             email,
             name,
             location,
             githubUsername,
             ...(avatar && { avatarURL: avatar }),
-            ...(hashPassword && { password: hashPassword }),
+            ...(newHashPassword && { password: newHashPassword }),
           },
         });
 

@@ -20,6 +20,11 @@ const seeCategoryResolver: Resolvers = {
             },
           },
         },
+        include: {
+          user: true,
+          photos: true,
+          categories: true,
+        },
         take: 2,
         skip: offset,
       });
